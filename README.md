@@ -1,16 +1,98 @@
-# React + Vite
+# Eleni Tadese - Full Stack Developer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Portfolio Banner](src/assets/elenifoto.jpg)
 
-Currently, two official plugins are available:
+## 👋 Hello! I'm Eleni Tadese
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+A passionate **Full Stack Developer** and **Computer Science student** with expertise in building modern web applications using React, Node.js, and MySQL. I create solutions that are not just functional but make a real impact.
 
-## React Compiler
+## 🚀 Live Portfolio
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+**[Visit My Portfolio Website](https://elenitadese.github.io/MY-PORTOFOLIO/)**
 
-## Expanding the ESLint configuration
+## 💼 Featured Projects
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 🎬 Netflix Clone
+**Full-stack streaming platform replica**
+- **Technologies**: React, Node.js, MySQL, Express, JWT
+- **Features**: User authentication, movie browsing, video playback
+- **Live Demo**: [Netflix Clone](https://your-netflix-clone.netlify.app)
+- **Code**: [GitHub Repository](https://github.com/Elenitadese/netflix-clone)
+
+### 🛒 Amazon E-commerce
+**Complete e-commerce solution**
+- **Technologies**: React, MySQL, Express.js, Stripe API
+- **Features**: Shopping cart, payment integration, user management
+- **Live Demo**: [Amazon Clone](https://your-amazon-clone.vercel.app)
+- **Code**: [GitHub Repository](https://github.com/Elenitadese/amazon-clone)
+
+### 💬 Evangadi Forum
+**Community discussion platform**
+- **Technologies**: React, Socket.io, MySQL, Node.js, Redis
+- **Features**: Real-time messaging, user profiles, content moderation
+- **Live Demo**: [Evangadi Forum](https://your-forum-app.herokuapp.com)
+- **Code**: [GitHub Repository](https://github.com/Elenitadese/evangadi-forum)
+
+### 📺 YouTube Clone
+**Video sharing platform**
+- **Technologies**: React, Firebase, Node.js, MySQL, Cloud Storage
+- **Features**: Video upload, comments, likes, responsive player
+- **Live Demo**: [YouTube Clone](https://your-youtube-clone.firebaseapp.com)
+- **Code**: [GitHub Repository](https://github.com/Elenitadese/youtube-clone)
+
+## 🛠️ Technical Skills
+
+### Frontend Development
+- **Languages**: JavaScript (ES6+), HTML5, CSS3
+- **Frameworks**: React.js, Vite
+- **Styling**: CSS Modules, Responsive Design, Animations
+- **State Management**: React Hooks, Context API
+
+### Backend Development
+- **Runtime**: Node.js, Express.js
+- **Authentication**: JWT, Session Management
+- **APIs**: RESTful API Design, Socket.io for real-time
+- **Payment**: Stripe Integration
+
+### Databases & Deployment
+- **Databases**: MySQL, MongoDB, Redis
+- **Deployment**: Heroku, Netlify, Vercel, GitHub Pages
+- **Tools**: Git, GitHub, npm, Webpack
+
+## 📈 What I Bring to the Table
+
+- **Clean Code**: Well-structured, maintainable code following best practices
+- **Problem Solving**: Strong analytical skills and creative solutions
+- **Full-Stack Expertise**: End-to-end development from database to UI
+- **User Focus**: Creating intuitive and engaging user experiences
+- **Continuous Learning**: Always exploring new technologies and methodologies
+
+## 🎯 My Development Philosophy
+
+> "I believe in building applications that not only work flawlessly but also provide exceptional user experiences. Every line of code should serve a purpose and contribute to making someone's life easier."
+
+## 📫 Let's Connect!
+
+I'm always open to discussing new opportunities, collaborations, or just chatting about technology.
+
+- **📧 Email**: [elenitade1221@gmail.com](mailto:elenitade1221@gmail.com)
+- **💼 LinkedIn**: [Eleni Tadese](https://linkedin.com/in/eleni-tadese)
+- **🐙 GitHub**: [@Elenitadese](https://github.com/Elenitadese)
+- **📍 Location**: Adama, Ethiopia
+
+## 🌟 Why Work With Me?
+
+- **Reliable**: Committed to deadlines and quality delivery
+- **Adaptable**: Quick to learn new technologies and frameworks
+- **Collaborative**: Great team player with excellent communication skills
+- **Detail-Oriented**: Thorough testing and attention to user experience
+
+---
+
+<div align="center">
+
+### ⭐ "Code is poetry when it solves real problems"
+
+**Open to new opportunities and exciting projects!**
+
+</div>

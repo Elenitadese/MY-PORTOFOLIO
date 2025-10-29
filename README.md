@@ -1,6 +1,6 @@
 # Eleni Tadese - Full Stack Developer Portfolio
 
-![Portfolio Banner](src/assets/elenifoto.jpg)
+
 
 ## 👋 Hello! I'm Eleni Tadese
 

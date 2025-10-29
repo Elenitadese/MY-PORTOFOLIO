@@ -1,0 +1,192 @@
+/* src/components/Projects.module.css */
+.projectsSection {
+  padding: 80px 20px;
+  background-color: #000D2C;
+  text-align: center;
+  min-height: 100vh;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 60px;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Responsive grid - Keep your original layout */
+.projectGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 35px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Project Card - Keep your original style */
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  background-color: #fff;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Image - Keep full image style but make responsive */
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.card:hover .image {
+  transform: scale(1.1);
+}
+
+/* Overlay on hover - Keep your original */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  padding: 20px;
+  transition: opacity 0.4s ease;
+}
+
+.card:hover .overlay {
+  opacity: 1;
+}
+
+.overlay h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.overlay p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #ddd;
+}
+
+/* Buttons inside overlay */
+.buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.demoBtn,
+.githubBtn {
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.demoBtn {
+  background-color: #ff4747;
+  color: #fff;
+}
+
+.demoBtn:hover {
+  background-color: #e03939;
+}
+
+.githubBtn {
+  background-color: #fff;
+  color: #000;
+}
+
+.githubBtn:hover {
+  background-color: #ddd;
+}
+
+/* Only fix responsive issues - minimal changes */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .projectGrid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+  }
+
+  .overlay h3 {
+    font-size: 1.2rem;
+  }
+
+  .overlay p {
+    font-size: 0.9rem;
+  }
+
+  .buttons {
+    gap: 10px;
+  }
+
+  .demoBtn,
+  .githubBtn {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .projectsSection {
+    padding: 60px 15px;
+  }
+
+  .title {
+    font-size: 1.8rem;
+    margin-bottom: 40px;
+  }
+
+  .projectGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 400px;
+  }
+
+  .overlay {
+    padding: 15px;
+  }
+
+  .overlay h3 {
+    font-size: 1.1rem;
+  }
+
+  .overlay p {
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .demoBtn,
+  .githubBtn {
+    width: 100%;
+    text-align: center;
+  }
+}

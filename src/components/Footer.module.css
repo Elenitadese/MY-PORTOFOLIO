@@ -1,0 +1,256 @@
+/* src/components/Footer.module.css */
+.footer {
+ 
+   background: #000D2C;;
+  color: #fff;
+  padding: 60px 20px 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #667eea, #e50914);
+}
+
+.footerContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.footerText {
+  text-align: left;
+  flex: 1;
+  min-width: 300px;
+}
+
+.copyright {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #ffffff 0%, #cccccc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.tagline {
+  font-size: 0.9rem;
+  color: #cccccc;
+  font-weight: 400;
+  margin: 0;
+}
+
+.socials {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #cccccc;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 12px 20px;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  min-width: 140px;
+  justify-content: flex-start;
+}
+
+.socialLink::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+  transition: left 0.6s ease;
+}
+
+.socialLink:hover::before {
+  left: 100%;
+}
+
+.socialLink:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+  border-color: rgba(102, 126, 234, 0.4);
+  color: #667eea;
+  background: rgba(102, 126, 234, 0.1);
+}
+
+.socialIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.socialLink:hover .socialIcon {
+  transform: scale(1.1);
+}
+
+.socialLink span {
+  flex: 1;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.socialLink:hover span {
+  color: #667eea;
+  font-weight: 600;
+}
+
+.externalIcon {
+  font-size: 1rem !important;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.socialLink:hover .externalIcon {
+  opacity: 1;
+  transform: translateX(3px);
+  color: #667eea;
+}
+
+/* Specific icon colors on hover */
+.socialLink:nth-child(1):hover { /* GitHub */
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.socialLink:nth-child(2):hover { /* Email */
+  border-color: rgba(229, 9, 20, 0.4);
+  background: rgba(229, 9, 20, 0.1);
+  color: #e50914;
+}
+
+.socialLink:nth-child(2):hover span {
+  color: #e50914;
+}
+
+.socialLink:nth-child(2):hover .socialIcon {
+  color: #e50914;
+}
+
+.socialLink:nth-child(3):hover { /* LinkedIn */
+  border-color: rgba(10, 102, 194, 0.4);
+  background: rgba(10, 102, 194, 0.1);
+  color: #0a66c2;
+}
+
+.socialLink:nth-child(3):hover span {
+  color: #0a66c2;
+}
+
+.socialLink:nth-child(3):hover .socialIcon {
+  color: #0a66c2;
+}
+
+.footerBottom {
+  max-width: 1200px;
+  margin: 40px auto 0;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.footerBottom p {
+  color: #999;
+  font-size: 0.9rem;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer {
+    padding: 50px 20px 25px;
+  }
+  
+  .footerContent {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+  
+  .footerText {
+    text-align: center;
+    min-width: auto;
+  }
+  
+  .socials {
+    gap: 15px;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .socialLink {
+    min-width: 120px;
+    padding: 10px 16px;
+    flex: 1;
+    max-width: 150px;
+  }
+  
+  .copyright {
+    font-size: 1rem;
+  }
+  
+  .tagline {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 40px 15px 20px;
+  }
+  
+  .socials {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .socialLink {
+    width: 100%;
+    max-width: 200px;
+    justify-content: center;
+  }
+  
+  .footerBottom {
+    margin-top: 30px;
+    padding-top: 20px;
+  }
+  
+  .footerBottom p {
+    font-size: 0.8rem;
+  }
+}
+
+/* Smooth animations */
+.socialLink, .socialIcon, .externalIcon {
+  will-change: transform;
+}

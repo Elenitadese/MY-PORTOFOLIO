@@ -1,0 +1,418 @@
+/* src/components/Header.module.css */
+.outer_div {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: linear-gradient(180deg, rgba(0,0,0,0.8) 0%, transparent 100%);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.outer_div.scrolled {
+  background: rgba(15, 15, 15, 0.98);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.first_div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  padding: 0 5%;
+  color: white;
+}
+
+/* Enhanced Logo Styles - Now in one line */
+.logo {
+  text-decoration: none;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 10px 0;
+}
+
+.logo:hover {
+  transform: translateY(-2px);
+}
+
+.logoText {
+  display: flex;
+  align-items: baseline;
+  line-height: 1;
+  position: relative;
+  white-space: nowrap;
+}
+
+.logoFirst {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ffffff 0%, #e8e8e8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.5px;
+  transition: all 0.4s ease;
+  font-family: 'Inter', 'SF Pro Display', -apple-system, sans-serif;
+  margin-right: 2px;
+}
+
+.logoLast {
+  font-size: 2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #e50914 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.3px;
+  transition: all 0.4s ease;
+  font-family: 'Inter', 'SF Pro Display', -apple-system, sans-serif;
+}
+
+.logoUnderline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #667eea, #e50914);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 2px;
+}
+
+/* Logo Hover Effects */
+.logo:hover .logoFirst {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transform: translateX(2px);
+}
+
+.logo:hover .logoLast {
+  background: linear-gradient(135deg, #e50914 0%, #ff6b6b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transform: translateX(-2px);
+}
+
+.logo:hover .logoUnderline {
+  width: 100%;
+  box-shadow: 0 0 20px rgba(229, 9, 20, 0.4);
+}
+
+/* Enhanced Center Navigation */
+.nav_links {
+  display: flex;
+  gap: 2.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav_links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 0.8rem 0;
+  overflow: hidden;
+}
+
+.navText {
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.nav_links a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #667eea, #e50914);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 2px;
+}
+
+.nav_links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #e50914, #667eea);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 2px;
+}
+
+.nav_links a:hover::before,
+.nav_links a:hover::after {
+  width: 50%;
+}
+
+.nav_links a:hover .navText {
+  color: #667eea;
+  transform: translateY(-2px);
+  text-shadow: 0 0 20px rgba(102, 126, 234, 0.4);
+}
+
+/* Right Section */
+.header_right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Enhanced Search */
+.search_container {
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.search_container.search_open {
+  width: 220px;
+  opacity: 1;
+}
+
+.search_input {
+  width: 100%;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  font-size: 0.9rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.search_input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(102, 126, 234, 0.4);
+  box-shadow: 0 0 20px rgba(102, 126, 234, 0.2);
+}
+
+.search_input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Enhanced Icon Links */
+.icon_links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.icon_button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.icon_button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.icon_button:hover::before {
+  left: 100%;
+}
+
+.icon_button:hover {
+  background: rgba(102, 126, 234, 0.1);
+  color: #667eea;
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+/* Enhanced Mobile Menu */
+.menu_toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.menu_toggle::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(229, 9, 20, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.menu_toggle:hover::before {
+  left: 100%;
+}
+
+.menu_toggle:hover {
+  background: rgba(229, 9, 20, 0.1);
+  color: #e50914;
+  transform: scale(1.05);
+}
+
+.mobile_nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: rgba(10, 10, 10, 0.98);
+  backdrop-filter: blur(30px);
+  padding: 2.5rem;
+  transform: translateY(-100%);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile_nav_open {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile_nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.mobile_nav a::before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  background: linear-gradient(135deg, #667eea, #e50914);
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+}
+
+.mobile_nav a:hover::before {
+  transform: scaleY(1);
+}
+
+.mobile_nav a:hover .navText {
+  color: #667eea;
+  padding-left: 15px;
+  text-shadow: 0 0 15px rgba(102, 126, 234, 0.4);
+}
+
+.mobile_actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile_icon_button {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 1rem 0;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+}
+
+.mobile_icon_button:hover {
+  color: #667eea;
+  padding-left: 15px;
+  background: rgba(102, 126, 234, 0.1);
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+  .nav_links {
+    display: none;
+  }
+  
+  .icon_links {
+    display: none;
+  }
+  
+  .menu_toggle {
+    display: flex;
+  }
+  
+  .search_container.search_open {
+    width: 160px;
+  }
+  
+  .logoFirst,
+  .logoLast {
+    font-size: 1.6rem;
+  }
+  
+  .first_div {
+    height: 70px;
+    padding: 0 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .search_container.search_open {
+    width: 130px;
+  }
+  
+  .logoFirst,
+  .logoLast {
+    font-size: 1.4rem;
+  }
+}
+
+/* Smooth animations for all elements */
+.logo, .nav_links a, .icon_button, .menu_toggle {
+  will-change: transform;
+}

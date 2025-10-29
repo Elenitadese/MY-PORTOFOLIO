@@ -1,0 +1,444 @@
+/* src/components/Skills.module.css */
+.skillsSection {
+  background: linear-gradient(135deg, #000D2C 0%, #1a1a2e 100%);
+  padding: 100px 20px;
+  color: white;
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #ffffff 0%, #cccccc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.separator {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(to right, #667eea, #764ba2);
+  margin: 0 auto 20px;
+  border-radius: 2px;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #cccccc;
+  max-width: 600px;
+  margin: 0 auto;
+  font-weight: 500;
+}
+
+/* Top Skills Grid - 3 cards in one row */
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  justify-items: center;
+}
+
+/* Bottom Row - Tools & Platforms + Problem Solving */
+.bottomRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+/* Tools Card */
+.toolsCard {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 40px 30px;
+  border-radius: 20px;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: fit-content;
+}
+
+.toolsCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+  transition: left 0.6s ease;
+}
+
+.toolsCard:hover::before {
+  left: 100%;
+}
+
+.toolsCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
+  border-color: rgba(102, 126, 234, 0.3);
+}
+
+/* Skill Card Styles (for all cards) */
+.skillCard, .toolsCard {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 40px 30px;
+  border-radius: 20px;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.skillCard::before, .toolsCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+  transition: left 0.6s ease;
+}
+
+.skillCard:hover::before, .toolsCard:hover::before {
+  left: 100%;
+}
+
+.skillCard:hover, .toolsCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
+  border-color: rgba(102, 126, 234, 0.3);
+}
+
+.skillIcon {
+  color: #667eea;
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.skillTitle {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: white;
+}
+
+.skillDescription {
+  color: #cccccc;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  font-size: 1rem;
+}
+
+.technologies {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  justify-items: center;
+  align-items: center;
+}
+
+.techItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  min-width: 140px;
+  justify-content: flex-start;
+}
+
+.techItem:hover {
+  background: rgba(102, 126, 234, 0.2);
+  border-color: rgba(102, 126, 234, 0.4);
+  transform: translateY(-2px);
+}
+
+.techIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+/* Custom icon styles */
+.reactIcon {
+  color: #61DAFB;
+  font-size: 1.5rem;
+}
+
+.customIcon {
+  font-size: 1.5rem;
+  color: #667eea;
+}
+
+.leetcodeIcon {
+  font-size: 1.5rem;
+  color: #FFA116;
+}
+
+.codeforcesIcon {
+  font-size: 1.5rem;
+  color: #3B5998;
+}
+
+.techIcon .MuiSvgIcon-root {
+  font-size: 1.5rem;
+  color: #667eea;
+}
+
+.techName {
+  color: #cccccc;
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Coding Profiles Section */
+.codingProfiles {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 40px 30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: fit-content;
+}
+
+.profilesHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.profileIcon {
+  font-size: 2rem !important;
+  color: #667eea;
+}
+
+.profilesTitle {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: white;
+  margin: 0;
+}
+
+.profilesDescription {
+  color: #cccccc;
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.profilesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.profileLink {
+  text-decoration: none;
+  color: inherit;
+}
+
+.profileCard {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 25px 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.profileCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+  transition: left 0.6s ease;
+}
+
+.profileCard:hover::before {
+  left: 100%;
+}
+
+.profileCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(102, 126, 234, 0.2);
+  border-color: rgba(217, 219, 228, 0.4);
+}
+
+.platformIcon {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  width: 50px;
+  height: 50px;
+}
+
+.platformInfo {
+  flex: 1;
+  text-align: left;
+}
+
+.platformInfo h4 {
+  margin: 0 0 5px 0;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.platformInfo p {
+  margin: 0;
+  color: #cccccc;
+  font-size: 0.9rem;
+}
+
+.externalIcon {
+  color: #667eea;
+  font-size: 1.2rem !important;
+  transition: transform 0.3s ease;
+}
+
+.profileCard:hover .externalIcon {
+  transform: translateX(3px);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .skillsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+  
+  .bottomRow {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 768px) {
+  .skillsSection {
+    padding: 60px 20px;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .skillsGrid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    margin-bottom: 40px;
+    max-width: 500px;
+  }
+  
+  .bottomRow {
+    max-width: 500px;
+  }
+  
+  .skillCard, .toolsCard {
+    padding: 30px 25px;
+  }
+  
+  .codingProfiles {
+    padding: 30px 25px;
+  }
+  
+  .technologies {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  
+  .techItem {
+    padding: 10px 12px;
+    min-width: 130px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.8rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+  
+  .technologies {
+    grid-template-columns: 1fr;
+  }
+  
+  .techItem {
+    justify-content: center;
+  }
+  
+  .codingProfiles {
+    padding: 25px 20px;
+  }
+  
+  .profileCard {
+    padding: 20px 15px;
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+  
+  .platformInfo {
+    text-align: center;
+  }
+  
+  .techName {
+    font-size: 0.85rem;
+  }
+}

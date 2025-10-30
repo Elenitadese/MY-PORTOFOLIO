@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import WebIcon from "@mui/icons-material/Web";
 import StorageIcon from "@mui/icons-material/Storage";
 import CodeIcon from "@mui/icons-material/Code";
@@ -16,7 +16,6 @@ import {
   SiCodeforces,
 } from "react-icons/si";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import ChromeReaderModeIcon from "@mui/icons-material/ChromeReaderMode";
 
 import styles from "./Skills.module.css";
 
@@ -31,7 +30,7 @@ const GitLogo = () => <FaGitAlt className={styles.customIcon} />;
 const LeetcodeLogo = () => <SiLeetcode className={styles.leetcodeIcon} />;
 const CodeforcesLogo = () => <SiCodeforces className={styles.codeforcesIcon} />;
 
-// Sample skills/projects
+// Skills data with links
 const skills = [
   {
     icon: <WebIcon sx={{ fontSize: 40 }} />,
@@ -71,8 +70,18 @@ const skills = [
     title: "Problem Solving",
     description: "Algorithms, competitive programming & challenges",
     technologies: [
-      { icon: <LeetcodeLogo />, name: "LeetCode" },
-      { icon: <CodeforcesLogo />, name: "Codeforces" },
+      {
+        icon: <LeetcodeLogo />,
+        name: "LeetCode",
+        link: "https://leetcode.com/u/elenitadese/",
+        external: true,
+      },
+      {
+        icon: <CodeforcesLogo />,
+        name: "Codeforces",
+        link: "https://codeforces.com/profile/elenitadese",
+        external: true,
+      },
     ],
   },
   {
@@ -86,22 +95,7 @@ const skills = [
   },
 ];
 
-const ITEMS_PER_PAGE = 5;
-
 function Skills() {
-  const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = Math.ceil(skills.length / ITEMS_PER_PAGE);
-
-  const handleNext = () => {
-    if (currentPage < totalPages) setCurrentPage(currentPage + 1);
-  };
-  const handlePrev = () => {
-    if (currentPage > 1) setCurrentPage(currentPage - 1);
-  };
-
-  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-  const currentSkills = skills.slice(startIndex, startIndex + ITEMS_PER_PAGE);
-
   return (
     <section id="skills" className={styles.skillsSection}>
       <div className="container">
@@ -114,43 +108,60 @@ function Skills() {
           </p>
         </div>
 
+        {/* Show ALL skills without pagination */}
         <div className={styles.skillsGrid}>
-          {currentSkills.map((skill, index) => (
-            <div key={index} className={styles.skillCard}>
+          {skills.map((skill, index) => (
+            <div
+              key={index}
+              className={`${styles.skillCard} ${
+                skill.title === "Problem Solving"
+                  ? styles.problemSolvingCard
+                  : ""
+              }`}
+            >
               <div className={styles.skillIcon}>{skill.icon}</div>
               <h3 className={styles.skillTitle}>{skill.title}</h3>
               <p className={styles.skillDescription}>{skill.description}</p>
-              <div className={styles.technologies}>
-                {skill.technologies.map((tech, techIndex) => (
-                  <div key={techIndex} className={styles.techItem}>
-                    <div className={styles.techIcon}>{tech.icon}</div>
-                    <span className={styles.techName}>{tech.name}</span>
-                  </div>
-                ))}
+              <div
+                className={`${styles.technologies} ${
+                  skill.technologies.length <= 2 ? styles.twoItems : ""
+                }`}
+              >
+                {skill.technologies.map((tech, techIndex) => {
+                  // If technology has a link, make it clickable
+                  if (tech.link) {
+                    return (
+                      <a
+                        key={techIndex}
+                        href={tech.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.techItemLink}
+                      >
+                        <div className={styles.techItem}>
+                          <div className={styles.techIcon}>{tech.icon}</div>
+                          <span className={styles.techName}>{tech.name}</span>
+                          {tech.external && (
+                            <OpenInNewIcon
+                              className={styles.externalLinkIcon}
+                            />
+                          )}
+                        </div>
+                      </a>
+                    );
+                  }
+
+                  // Regular non-clickable tech item
+                  return (
+                    <div key={techIndex} className={styles.techItem}>
+                      <div className={styles.techIcon}>{tech.icon}</div>
+                      <span className={styles.techName}>{tech.name}</span>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Pagination */}
-        <div className={styles.pagination}>
-          <button
-            onClick={handlePrev}
-            disabled={currentPage === 1}
-            className={styles.pageButton}
-          >
-            Previous
-          </button>
-          <span className={styles.pageInfo}>
-            {currentPage} / {totalPages}
-          </span>
-          <button
-            onClick={handleNext}
-            disabled={currentPage === totalPages}
-            className={styles.pageButton}
-          >
-            Next
-          </button>
         </div>
       </div>
     </section>

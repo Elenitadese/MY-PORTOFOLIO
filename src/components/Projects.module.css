@@ -16,12 +16,13 @@
 
 .projectGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 35px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
+/* Fixed Card Styles */
 .card {
   position: relative;
   overflow: hidden;
@@ -31,6 +32,11 @@
   border: 1px solid rgba(255,255,255,0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
+  
+  /* FIX: Set fixed aspect ratio for consistent image coverage */
+  aspect-ratio: 4/3; /* This ensures consistent height relative to width */
+  width: 100%;
+  height: 400px; /* Ensure full width */
 }
 
 .card:hover {
@@ -38,10 +44,15 @@
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
+/* Fixed Image Styles */
 .image {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* This ensures image covers entire card */
+  object-position: center; /* Center the image */
   display: block;
   transition: transform 0.4s ease;
 }
@@ -50,9 +61,13 @@
   transform: scale(1.1);
 }
 
+/* Overlay */
 .overlay {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background-color: rgba(0, 0, 0, 0.75);
   color: white;
   display: flex;
@@ -62,6 +77,7 @@
   opacity: 0;
   padding: 20px;
   transition: opacity 0.4s ease;
+  z-index: 2; /* Ensure overlay is above image */
 }
 
 .card:hover .overlay {
@@ -72,27 +88,31 @@
   font-size: 1.4rem;
   font-weight: 600;
   margin-bottom: 8px;
+  text-align: center;
 }
 
 .overlay p {
   font-size: 1rem;
   margin-bottom: 15px;
   color: #ddd;
+  text-align: center;
 }
 
 .buttons {
   display: flex;
   gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.demoBtn,
-.githubBtn {
+.demoBtn, .githubBtn {
   padding: 10px 16px;
   border-radius: 6px;
   font-size: 0.9rem;
   text-decoration: none;
   font-weight: 600;
   transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
 .demoBtn {
@@ -112,92 +132,214 @@
 .githubBtn:hover {
   background-color: #ddd;
 }
-/* GitHub CTA specific styles */
-.githubCTA {
+
+/* GitHub CTA Section */
+.githubCTASection {
+  max-width: 1200px;
+  margin: 60px auto 0;
+  padding: 0 20px;
+}
+
+.githubCTACard {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  gap: 15px;
-  height: 100%;
+  gap: 30px;
+  background: rgba(102, 126, 234, 0.1);
+  border: 2px solid rgba(102, 126, 234, 0.3);
+  border-radius: 20px;
+  padding: 40px;
   text-decoration: none;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
 }
 
-.githubCTA .overlay {
-  opacity: 1; /* always visible */
-  background-color: rgba(102, 126, 234, 0.1);
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  height: 100%;
-  padding: 20px;
+.githubCTACard:hover {
+  background: rgba(102, 126, 234, 0.15);
+  border-color: rgba(102, 126, 234, 0.5);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(102, 126, 234, 0.2);
 }
 
-.githubCTA .githubIcon {
-  font-size: 2rem;
+.githubIcon {
+  font-size: 3rem !important;
   color: #667eea;
+  flex-shrink: 0;
 }
 
-.githubCTA h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 4px;
+.githubContent {
+  text-align: left;
+  flex: 1;
 }
 
-.githubCTA p {
-  font-size: 1rem;
-  color: #ccc;
+.githubContent h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: white;
   margin-bottom: 10px;
-  text-align: center;
 }
 
-.githubCTA .ctaLabel {
+.githubContent p {
+  font-size: 1.1rem;
+  color: #ccc;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.ctaLabel {
+  display: inline-block;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
   font-weight: 600;
-  color: #fff;
-  background: #667eea;
-  padding: 8px 16px;
-  border-radius: 6px;
+  font-size: 1rem;
   transition: all 0.3s ease;
 }
 
-.githubCTA:hover .ctaLabel {
-  background: #764ba2;
-  transform: scale(1.05);
+.githubCTACard:hover .ctaLabel {
+  transform: translateX(5px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
 }
 
-/* Pagination */
-.pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
+/* Load More Button */
+.loadMoreContainer {
   margin-top: 40px;
 }
 
-.pageBtn {
-  padding: 8px 16px;
+.loadMoreBtn {
+  padding: 12px 24px;
+  background: #667eea;
+  color: #fff;
   font-weight: 600;
-  border-radius: 6px;
   border: none;
-  background-color: #667eea;
-  color: white;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
-.pageBtn:disabled {
-  background-color: #444;
-  cursor: not-allowed;
+.loadMoreBtn:hover {
+  background: #764ba2;
 }
 
-.pageBtn:hover:not(:disabled) {
-  background-color: #764ba2;
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .projectGrid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+  }
 }
 
-.pageInfo {
-  font-weight: 600;
-  color: white;
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+  
+  .projectGrid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    max-width: 400px; /* Limit width on mobile for better appearance */
+  }
+  
+  .card {
+    aspect-ratio: 4/3; /* Keep aspect ratio on mobile too */
+  }
+  
+  /* GitHub CTA Mobile */
+  .githubCTASection {
+    margin-top: 40px;
+  }
+  
+  .githubCTACard {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 20px;
+    gap: 20px;
+  }
+  
+  .githubContent {
+    text-align: center;
+  }
+  
+  .githubIcon {
+    font-size: 2.5rem !important;
+  }
+  
+  .githubContent h3 {
+    font-size: 1.5rem;
+  }
+  
+  .githubContent p {
+    font-size: 1rem;
+  }
+  
+  .buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .demoBtn, .githubBtn {
+    width: 140px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.6rem;
+    margin-bottom: 30px;
+  }
+  
+  .projectGrid {
+    gap: 20px;
+  }
+  
+  .card {
+    aspect-ratio: 3/2; /* Slightly different ratio for very small screens */
+  }
+  
+  .overlay {
+    padding: 15px;
+  }
+  
+  .overlay h3 {
+    font-size: 1.2rem;
+  }
+  
+  .overlay p {
+    font-size: 0.9rem;
+  }
+  
+  .githubCTACard {
+    padding: 25px 15px;
+  }
+  
+  .githubContent h3 {
+    font-size: 1.3rem;
+  }
+  
+  .githubContent p {
+    font-size: 0.9rem;
+  }
+  
+  .ctaLabel {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Fallback for browsers that don't support aspect-ratio */
+@supports not (aspect-ratio: 4/3) {
+  .card::before {
+    content: '';
+    display: block;
+    padding-top: 75%; /* 4:3 aspect ratio */
+  }
+  
+  .image {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 }

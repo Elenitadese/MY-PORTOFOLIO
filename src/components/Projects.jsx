@@ -3,32 +3,25 @@ import styles from "./Projects.module.css";
 import { projects } from "../Projects-data/projects";
 import GitHubIcon from "@mui/icons-material/GitHub";
 
-const ITEMS_PER_PAGE = 5;
+const ITEMS_PER_PAGE = 3;
 
-function Projects() {
-  const [currentPage, setCurrentPage] = useState(1);
+const Projects = () => {
+  const [page, setPage] = useState(1);
 
+  const visibleProjects = projects.slice(0, page * ITEMS_PER_PAGE);
   const totalPages = Math.ceil(projects.length / ITEMS_PER_PAGE);
-  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-  const currentProjects = projects.slice(
-    startIndex,
-    startIndex + ITEMS_PER_PAGE
-  );
 
-  const handlePrev = () => {
-    if (currentPage > 1) setCurrentPage(currentPage - 1);
-  };
-
-  const handleNext = () => {
-    if (currentPage < totalPages) setCurrentPage(currentPage + 1);
+  const loadMore = () => {
+    if (page < totalPages) setPage(page + 1);
   };
 
   return (
     <section id="projects" className={styles.projectsSection}>
       <h2 className={styles.title}>My Projects</h2>
 
+      {/* Projects Grid - Only contains actual projects */}
       <div className={styles.projectGrid}>
-        {currentProjects.map((p) => (
+        {visibleProjects.map((p) => (
           <div key={p.id} className={styles.card}>
             <img src={p.image} alt={p.title} className={styles.image} />
             <div className={styles.overlay}>
@@ -55,49 +48,37 @@ function Projects() {
             </div>
           </div>
         ))}
-
-        {/* GitHub CTA Card */}
-        {currentPage === totalPages && (
-          <a
-            href="https://github.com/Elenitadese"
-            target="_blank"
-            rel="noreferrer"
-            className={`${styles.card} ${styles.githubCTA}`}
-          >
-            <div className={styles.overlay}>
-              <GitHubIcon className={styles.githubIcon} />
-              <h3>See More Projects</h3>
-              <p>Explore all my work on GitHub and follow my updates.</p>
-              <span className={styles.ctaLabel}>Visit GitHub →</span>
-            </div>
-          </a>
-        )}
       </div>
 
-      {/* Pagination Buttons */}
-      {totalPages > 1 && (
-        <div className={styles.pagination}>
-          <button
-            onClick={handlePrev}
-            disabled={currentPage === 1}
-            className={styles.pageBtn}
-          >
-            Prev
-          </button>
-          <span className={styles.pageInfo}>
-            {currentPage} / {totalPages}
-          </span>
-          <button
-            onClick={handleNext}
-            disabled={currentPage === totalPages}
-            className={styles.pageBtn}
-          >
-            Next
+      {/* GitHub CTA Section - Outside the grid */}
+      <div className={styles.githubCTASection}>
+        <a
+          href="https://github.com/Elenitadese"
+          target="_blank"
+          rel="noreferrer"
+          className={styles.githubCTACard}
+        >
+          <GitHubIcon className={styles.githubIcon} />
+          <div className={styles.githubContent}>
+            <h3>Want to see more projects?</h3>
+            <p>
+              Explore all my work, contributions, and coding journey on GitHub
+            </p>
+            <span className={styles.ctaLabel}>Visit My GitHub →</span>
+          </div>
+        </a>
+      </div>
+
+      {/* Load More Button */}
+      {page < totalPages && (
+        <div className={styles.loadMoreContainer}>
+          <button onClick={loadMore} className={styles.loadMoreBtn}>
+            Load More Projects
           </button>
         </div>
       )}
     </section>
   );
-}
+};
 
 export default Projects;

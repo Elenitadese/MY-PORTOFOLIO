@@ -1,6 +1,5 @@
 // src/components/Header.jsx
 import React, { useState, useEffect } from "react";
-import SearchIcon from "@mui/icons-material/Search";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import styles from "./Header.module.css";
@@ -8,7 +7,6 @@ import styles from "./Header.module.css";
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,9 +19,7 @@ const Header = () => {
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => setIsMenuOpen(false);
-  const toggleSearch = () => setIsSearchOpen(!isSearchOpen);
 
-  // Close menu when clicking on overlay
   const handleOverlayClick = (e) => {
     if (e.target === e.currentTarget) {
       closeMenu();
@@ -35,7 +31,7 @@ const Header = () => {
       className={`${styles.outer_div} ${isScrolled ? styles.scrolled : ""}`}
     >
       <div className={styles.first_div}>
-        {/* Logo - Now in one line */}
+        {/* Logo */}
         <a href="#home" className={styles.logo}>
           <span className={styles.logoText}>
             <span className={styles.logoFirst}>Eleni </span>
@@ -63,26 +59,12 @@ const Header = () => {
           </a>
         </nav>
 
-        {/* Right Section */}
+        {/* Right Section - Simplified */}
         <div className={styles.header_right}>
-          {/* Search */}
-          <div
-            className={`${styles.search_container} ${
-              isSearchOpen ? styles.search_open : ""
-            }`}
-          >
-            <input
-              type="text"
-              placeholder="Search..."
-              className={styles.search_input}
-            />
-          </div>
-
-          <div className={styles.icon_links}>
-            <button className={styles.icon_button} onClick={toggleSearch}>
-              <SearchIcon />
-            </button>
-          </div>
+          {/* Contact CTA - Professional alternative */}
+          <a href="#contact" className={styles.cta_button}>
+            Get In Touch
+          </a>
 
           {/* Mobile Menu Button */}
           <button className={styles.menu_toggle} onClick={toggleMenu}>
@@ -94,7 +76,6 @@ const Header = () => {
       {/* Mobile Navigation Overlay */}
       {isMenuOpen && (
         <div className={styles.mobile_overlay} onClick={handleOverlayClick}>
-          {/* Mobile Navigation Panel - Slides from LEFT */}
           <nav
             className={`${styles.mobile_nav} ${
               isMenuOpen ? styles.mobile_nav_open : ""
@@ -151,12 +132,15 @@ const Header = () => {
               </a>
             </div>
 
-            {/* Mobile Actions */}
+            {/* Mobile CTA */}
             <div className={styles.mobile_actions}>
-              <button className={styles.mobile_icon_button}>
-                <SearchIcon />
-                <span>Search</span>
-              </button>
+              <a
+                href="#contact"
+                className={styles.mobile_cta}
+                onClick={closeMenu}
+              >
+                Start a Conversation
+              </a>
             </div>
           </nav>
         </div>

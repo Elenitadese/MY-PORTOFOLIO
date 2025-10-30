@@ -26,7 +26,7 @@
   color: white;
 }
 
-/* Enhanced Logo Styles - Now in one line */
+/* Logo Styles */
 .logo {
   text-decoration: none;
   position: relative;
@@ -82,7 +82,6 @@
   border-radius: 2px;
 }
 
-/* Logo Hover Effects */
 .logo:hover .logoFirst {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   -webkit-background-clip: text;
@@ -166,90 +165,32 @@
   text-shadow: 0 0 20px rgba(102, 126, 234, 0.4);
 }
 
-/* Right Section */
+/* Right Section - Simplified */
 .header_right {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
-/* Enhanced Search */
-.search_container {
-  position: relative;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  width: 0;
-  opacity: 0;
-  overflow: hidden;
-}
-
-.search_container.search_open {
-  width: 220px;
-  opacity: 1;
-}
-
-.search_input {
-  width: 100%;
-  padding: 12px 20px;
-  border: none;
+/* Professional CTA Button */
+.cta_button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-decoration: none;
+  padding: 12px 24px;
   border-radius: 25px;
-  background: rgba(255, 255, 255, 0.08);
-  color: white;
+  font-weight: 600;
   font-size: 0.9rem;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
-}
-
-.search_input:focus {
-  outline: none;
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(102, 126, 234, 0.4);
-  box-shadow: 0 0 20px rgba(102, 126, 234, 0.2);
-}
-
-.search_input::placeholder {
-  color: rgba(255, 255, 255, 0.6);
-}
-
-/* Enhanced Icon Links */
-.icon_links {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.icon_button {
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
-  padding: 10px;
-  border-radius: 50%;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
 }
 
-.icon_button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.2), transparent);
-  transition: left 0.6s ease;
-}
-
-.icon_button:hover::before {
-  left: 100%;
-}
-
-.icon_button:hover {
-  background: rgba(102, 126, 234, 0.1);
-  color: #667eea;
-  transform: scale(1.1) translateY(-2px);
-  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+.cta_button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
 }
 
 /* Enhanced Mobile Menu */
@@ -262,23 +203,6 @@
   padding: 10px;
   border-radius: 8px;
   transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.menu_toggle::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(229, 9, 20, 0.2), transparent);
-  transition: left 0.6s ease;
-}
-
-.menu_toggle:hover::before {
-  left: 100%;
 }
 
 .menu_toggle:hover {
@@ -287,7 +211,7 @@
   transform: scale(1.05);
 }
 
-/* NEW: Mobile Overlay and LEFT-side Navigation */
+/* Mobile Overlay and Navigation */
 .mobile_overlay {
   position: fixed;
   top: 0;
@@ -308,22 +232,22 @@
 .mobile_nav {
   position: fixed;
   top: 0;
-  left: -100%; /* Changed from right: -100% to left: -100% */
+  left: -100%;
   width: 320px;
   height: 100vh;
   background: rgba(15, 15, 15, 0.98);
   backdrop-filter: blur(30px);
-  border-right: 1px solid rgba(255, 255, 255, 0.1); /* Changed from border-left */
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
   z-index: 1000;
   display: flex;
   flex-direction: column;
-  transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Changed from right to left */
-  box-shadow: 10px 0 50px rgba(0, 0, 0, 0.5); /* Changed shadow direction */
+  transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 10px 0 50px rgba(0, 0, 0, 0.5);
 }
 
 .mobile_nav_open {
-  left: 0; /* Changed from right: 0 to left: 0 */
-  animation: slideInLeft 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Changed animation */
+  left: 0;
+  animation: slideInLeft 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @keyframes slideInLeft {
@@ -384,7 +308,7 @@
 
 .mobile_link:hover {
   background: rgba(102, 126, 234, 0.1);
-  transform: translateX(5px); /* Changed from -5px to 5px */
+  transform: translateX(5px);
 }
 
 .mobile_link:hover .navText {
@@ -409,24 +333,21 @@
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.mobile_icon_button {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  background: none;
-  border: none;
+.mobile_cta {
+  display: block;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
-  cursor: pointer;
-  padding: 1rem;
+  text-decoration: none;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  text-align: center;
   transition: all 0.3s ease;
-  border-radius: 8px;
-  width: 100%;
 }
 
-.mobile_icon_button:hover {
-  background: rgba(102, 126, 234, 0.1);
-  color: #667eea;
-  padding-left: 1.5rem;
+.mobile_cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
 }
 
 /* Mobile Responsive */
@@ -435,16 +356,12 @@
     display: none;
   }
   
-  .icon_links {
+  .cta_button {
     display: none;
   }
   
   .menu_toggle {
     display: flex;
-  }
-  
-  .search_container.search_open {
-    width: 160px;
   }
   
   .logoFirst,
@@ -457,17 +374,12 @@
     padding: 0 1rem;
   }
 
-  /* Adjust mobile nav width for smaller screens */
   .mobile_nav {
     width: 280px;
   }
 }
 
 @media screen and (max-width: 480px) {
-  .search_container.search_open {
-    width: 130px;
-  }
-  
   .logoFirst,
   .logoLast {
     font-size: 1.4rem;
@@ -475,15 +387,10 @@
 
   .mobile_nav {
     width: 100%;
-    left: -100%; /* Changed from right: -100% */
+    left: -100%;
   }
 
   .mobile_nav_open {
-    left: 0; /* Changed from right: 0 */
+    left: 0;
   }
-}
-
-/* Smooth animations for all elements */
-.logo, .nav_links a, .icon_button, .menu_toggle {
-  will-change: transform;
 }

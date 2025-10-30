@@ -1,4 +1,3 @@
-// src/components/Values.jsx
 import React from "react";
 import LightbulbIcon from "@mui/icons-material/Lightbulb";
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
@@ -13,37 +12,37 @@ const values = [
     icon: <LightbulbIcon sx={{ fontSize: 40 }} />,
     title: "Creativity",
     description:
-      "Innovating and thinking outside the box to solve problems and create value.",
+      "I approach every challenge with imagination and originality, crafting solutions that stand out.",
   },
   {
     icon: <RocketLaunchIcon sx={{ fontSize: 40 }} />,
     title: "Innovation",
     description:
-      "Always exploring new technologies and approaches to deliver cutting-edge solutions.",
+      "I continuously explore new technologies and methods to deliver cutting-edge solutions.",
   },
   {
     icon: <PrecisionManufacturingIcon sx={{ fontSize: 40 }} />,
     title: "Precision",
     description:
-      "Attention to detail and commitment to delivering high-quality, bug-free code.",
+      "I prioritize attention to detail and clean, efficient, bug-free code in every project.",
   },
   {
     icon: <HandshakeIcon sx={{ fontSize: 40 }} />,
     title: "Collaboration",
     description:
-      "Working effectively with teams and clients to achieve the best possible outcomes.",
+      "I work seamlessly with clients and teams to ensure projects exceed expectations.",
   },
   {
     icon: <SchoolIcon sx={{ fontSize: 40 }} />,
     title: "Continuous Learning",
     description:
-      "Constantly updating skills and knowledge to stay ahead in the tech industry.",
+      "I constantly update my skills and knowledge to stay at the forefront of the tech industry.",
   },
   {
     icon: <FavoriteIcon sx={{ fontSize: 40 }} />,
     title: "Passion",
     description:
-      "Genuine love for coding and creating solutions that make a difference.",
+      "I bring genuine enthusiasm and dedication to every project I undertake.",
   },
 ];
 
@@ -52,10 +51,11 @@ function Values() {
     <section id="values" className={styles.valuesSection}>
       <div className="container">
         <div className={styles.heading}>
-          <h2 className={styles.title}>My Values</h2>
+          <h2 className={styles.title}>Core Values</h2>
           <div className={styles.separator}></div>
           <p className={styles.subtitle}>
-            These principles guide my work and approach to every project
+            These principles guide my approach to development and design,
+            shaping every project I take on.
           </p>
         </div>
 

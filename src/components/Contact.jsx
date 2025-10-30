@@ -1,4 +1,3 @@
-// src/components/Contact.jsx
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import EmailIcon from "@mui/icons-material/Email";
@@ -17,10 +16,7 @@ function Contact() {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
@@ -38,7 +34,6 @@ function Contact() {
       time: new Date().toLocaleString(),
     };
 
-    // Show loading alert
     Swal.fire({
       title: "Sending...",
       text: "Please wait while we send your message.",
@@ -46,17 +41,12 @@ function Contact() {
       showConfirmButton: false,
       allowOutsideClick: false,
       allowEscapeKey: false,
-      didOpen: () => {
-        Swal.showLoading();
-      },
+      didOpen: () => Swal.showLoading(),
     });
 
     emailjs
       .send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY)
       .then((response) => {
-        console.log("✅ SUCCESS!", response.status, response.text);
-
-        // Close loading alert and show success
         Swal.fire({
           title: "Success!",
           text: "Your message has been sent successfully.",
@@ -64,13 +54,9 @@ function Contact() {
           confirmButtonText: "OK",
           confirmButtonColor: "#667eea",
         });
-
         setFormData({ name: "", email: "", message: "" });
       })
       .catch((err) => {
-        console.error("❌ FAILED...", err);
-
-        // Close loading alert and show error
         Swal.fire({
           title: "Error!",
           text: "Failed to send message. Please try again later.",
@@ -79,14 +65,12 @@ function Contact() {
           confirmButtonColor: "#667eea",
         });
       })
-      .finally(() => {
-        setIsLoading(false);
-      });
+      .finally(() => setIsLoading(false));
   };
 
   return (
     <section id="contact" className={styles.contactSection}>
-      <div className="container">
+      <div className={styles.container}>
         <div className={styles.heading}>
           <h2 className={styles.title}>Get In Touch</h2>
           <div className={styles.separator}></div>
@@ -96,42 +80,38 @@ function Contact() {
         </div>
 
         <div className={styles.contactContent}>
+          {/* Contact Info */}
           <div className={styles.contactInfo}>
             <h3>Let's Connect</h3>
             <p>
               I'm always interested in new opportunities and collaborations.
             </p>
-
             <div className={styles.contactItems}>
-              <div className={styles.contactItem}>
-                <div className={styles.contactIcon}>
-                  <EmailIcon />
+              {[
+                {
+                  icon: <EmailIcon />,
+                  label: "Email",
+                  value: "elenitade1221@gmail.com",
+                },
+                {
+                  icon: <PhoneIcon />,
+                  label: "Phone",
+                  value: "+251 910 278 021",
+                },
+                {
+                  icon: <LocationOnIcon />,
+                  label: "Location",
+                  value: "Adama, Ethiopia",
+                },
+              ].map((item, idx) => (
+                <div className={styles.contactItem} key={idx}>
+                  <div className={styles.contactIcon}>{item.icon}</div>
+                  <div>
+                    <h4>{item.label}</h4>
+                    <p>{item.value}</p>
+                  </div>
                 </div>
-                <div>
-                  <h4>Email</h4>
-                  <p>elenitade1221@gmail.com</p>
-                </div>
-              </div>
-
-              <div className={styles.contactItem}>
-                <div className={styles.contactIcon}>
-                  <PhoneIcon />
-                </div>
-                <div>
-                  <h4>Phone</h4>
-                  <p>+251 910 278 021</p>
-                </div>
-              </div>
-
-              <div className={styles.contactItem}>
-                <div className={styles.contactIcon}>
-                  <LocationOnIcon />
-                </div>
-                <div>
-                  <h4>Location</h4>
-                  <p>Adama, Ethiopia</p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
 
@@ -148,7 +128,6 @@ function Contact() {
                 disabled={isLoading}
               />
             </div>
-
             <div className={styles.formGroup}>
               <input
                 type="email"
@@ -160,7 +139,6 @@ function Contact() {
                 disabled={isLoading}
               />
             </div>
-
             <div className={styles.formGroup}>
               <textarea
                 name="message"
@@ -170,9 +148,8 @@ function Contact() {
                 onChange={handleChange}
                 required
                 disabled={isLoading}
-              ></textarea>
+              />
             </div>
-
             <button
               type="submit"
               className={styles.submitBtn}

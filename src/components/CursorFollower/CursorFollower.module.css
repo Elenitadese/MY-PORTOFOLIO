@@ -1,0 +1,149 @@
+/* Hide default cursor */
+body, * {
+  cursor: none !important;
+}
+
+/* Main cursor circle */
+.cursor {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  border: 2px solid #667eea;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+
+  /* Only transition size and color, not position */
+  transition: width 0.1s ease, height 0.1s ease, background 0.1s ease, border-width 0.1s ease;
+}
+
+/* Hover effect for clickable elements */
+.cursorHover {
+  width: 60px;
+  height: 60px;
+  background: rgba(102, 126, 234, 0.1);
+  border-width: 1px;
+}
+
+/* Inner dot */
+.cursorDot {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: #667eea;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  
+  /* Only transition size/color */
+  transition: transform 0.1s ease, background 0.1s ease;
+}
+
+/* Inner dot hover */
+.cursorDotHover {
+  background: #764ba2;
+  transform: translate(-50%, -50%) scale(1.5);
+}
+/* CursorFollower.module.css */
+
+/* Only hide cursor for non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+  body, * {
+    cursor: none !important;
+  }
+}
+
+/* Show default cursor for touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .cursor, .cursorDot {
+    display: none !important;
+  }
+}
+
+/* Main cursor circle */
+.cursor {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  border: 2px solid #667eea;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+  
+  /* Performance optimizations */
+  will-change: transform;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  
+  /* Only transition visual properties, not position */
+  transition: width 0.15s ease, height 0.15s ease, 
+              background 0.15s ease, border-width 0.15s ease,
+              border-color 0.15s ease;
+}
+
+/* Hover effect for clickable elements */
+.cursorHover {
+  width: 60px;
+  height: 60px;
+  background: rgba(102, 126, 234, 0.1);
+  border-width: 1px;
+  border-color: #764ba2;
+}
+
+/* Inner dot */
+.cursorDot {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: #667eea;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  
+  /* Performance optimizations */
+  will-change: transform;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  
+  /* Only transition visual properties */
+  transition: transform 0.15s ease, background 0.15s ease,
+              width 0.15s ease, height 0.15s ease;
+}
+
+/* Inner dot hover */
+.cursorDotHover {
+  background: #764ba2;
+  transform: translate(-50%, -50%) scale(1.5);
+}
+
+/* Mobile-specific styles - completely disable on touch */
+@media (max-width: 768px) {
+  .cursor, .cursorDot {
+    display: none !important;
+  }
+  
+  /* Restore cursor on mobile */
+  body, * {
+    cursor: auto !important;
+  }
+}
+
+/* High-performance animation for supported devices */
+@media (prefers-reduced-motion: no-preference) {
+  .cursor, .cursorDot {
+    transition-duration: 0.1s;
+  }
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .cursor, .cursorDot {
+    transition-duration: 0.01s;
+  }
+}

@@ -1,4 +1,3 @@
-// src/components/Footer.jsx
 import React from "react";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import EmailIcon from "@mui/icons-material/Email";
@@ -8,7 +7,7 @@ import styles from "./Footer.module.css";
 
 function Footer() {
   return (
-    <footer id="contact" className={styles.footer}>
+    <footer className={styles.footer}>
       <div className={styles.footerContent}>
         <div className={styles.footerText}>
           <p className={styles.copyright}>
@@ -25,6 +24,7 @@ function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             className={styles.socialLink}
+            aria-label="GitHub"
           >
             <div className={styles.socialIcon}>
               <GitHubIcon />
@@ -36,6 +36,7 @@ function Footer() {
           <a
             href="mailto:elenitade1221@gmail.com"
             className={styles.socialLink}
+            aria-label="Email"
           >
             <div className={styles.socialIcon}>
               <EmailIcon />
@@ -48,6 +49,7 @@ function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             className={styles.socialLink}
+            aria-label="LinkedIn"
           >
             <div className={styles.socialIcon}>
               <LinkedInIcon />

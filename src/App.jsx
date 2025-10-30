@@ -11,18 +11,20 @@ import Testimonials from "./components/Testimonials";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import "./App.css";
-import GitHubInvite from "./components/GitHubInvite";
+
+import CursorFollower from "./components/CursorFollower/CursorFollower";
 
 function App() {
   return (
     <div className="App">
+      <CursorFollower />
       <Header />
       <Hero />
       <About />
       <Skills />
       <Values />
       <Projects />
-      <GitHubInvite />
+      
       {/* <Process /> */}
       {/* <Testimonials /> */}
       <Contact />

@@ -23,6 +23,13 @@ const Header = () => {
   const closeMenu = () => setIsMenuOpen(false);
   const toggleSearch = () => setIsSearchOpen(!isSearchOpen);
 
+  // Close menu when clicking on overlay
+  const handleOverlayClick = (e) => {
+    if (e.target === e.currentTarget) {
+      closeMenu();
+    }
+  };
+
   return (
     <header
       className={`${styles.outer_div} ${isScrolled ? styles.scrolled : ""}`}
@@ -84,35 +91,76 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Navigation */}
-      <nav
-        className={`${styles.mobile_nav} ${
-          isMenuOpen ? styles.mobile_nav_open : ""
-        }`}
-      >
-        <a href="#home" onClick={closeMenu}>
-          <span className={styles.navText}>Home</span>
-        </a>
-        <a href="#about" onClick={closeMenu}>
-          <span className={styles.navText}>About</span>
-        </a>
-        <a href="#skills" onClick={closeMenu}>
-          <span className={styles.navText}>Skills</span>
-        </a>
-        <a href="#projects" onClick={closeMenu}>
-          <span className={styles.navText}>Projects</span>
-        </a>
-        <a href="#contact" onClick={closeMenu}>
-          <span className={styles.navText}>Contact</span>
-        </a>
+      {/* Mobile Navigation Overlay */}
+      {isMenuOpen && (
+        <div className={styles.mobile_overlay} onClick={handleOverlayClick}>
+          {/* Mobile Navigation Panel - Slides from LEFT */}
+          <nav
+            className={`${styles.mobile_nav} ${
+              isMenuOpen ? styles.mobile_nav_open : ""
+            }`}
+          >
+            {/* Close Button */}
+            <div className={styles.mobile_header}>
+              <button className={styles.mobile_close} onClick={closeMenu}>
+                <CloseIcon />
+              </button>
+            </div>
 
-        <div className={styles.mobile_actions}>
-          <button className={styles.mobile_icon_button}>
-            <SearchIcon />
-            <span>Search</span>
-          </button>
+            {/* Navigation Links */}
+            <div className={styles.mobile_links}>
+              <a
+                href="#home"
+                onClick={closeMenu}
+                className={styles.mobile_link}
+              >
+                <span className={styles.navText}>Home</span>
+                <div className={styles.link_underline}></div>
+              </a>
+              <a
+                href="#about"
+                onClick={closeMenu}
+                className={styles.mobile_link}
+              >
+                <span className={styles.navText}>About</span>
+                <div className={styles.link_underline}></div>
+              </a>
+              <a
+                href="#skills"
+                onClick={closeMenu}
+                className={styles.mobile_link}
+              >
+                <span className={styles.navText}>Skills</span>
+                <div className={styles.link_underline}></div>
+              </a>
+              <a
+                href="#projects"
+                onClick={closeMenu}
+                className={styles.mobile_link}
+              >
+                <span className={styles.navText}>Projects</span>
+                <div className={styles.link_underline}></div>
+              </a>
+              <a
+                href="#contact"
+                onClick={closeMenu}
+                className={styles.mobile_link}
+              >
+                <span className={styles.navText}>Contact</span>
+                <div className={styles.link_underline}></div>
+              </a>
+            </div>
+
+            {/* Mobile Actions */}
+            <div className={styles.mobile_actions}>
+              <button className={styles.mobile_icon_button}>
+                <SearchIcon />
+                <span>Search</span>
+              </button>
+            </div>
+          </nav>
         </div>
-      </nav>
+      )}
     </header>
   );
 };

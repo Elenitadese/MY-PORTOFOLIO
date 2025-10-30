@@ -1,7 +1,8 @@
-/* src/components/Values.module.css */
 .valuesSection {
   padding: 100px 20px;
-  background-color: #7457B2;
+  background-color: #000D2C; /* Keep dark background */
+  color: #fff;
+  font-family: 'Inter', sans-serif;
 }
 
 .heading {
@@ -10,10 +11,14 @@
 }
 
 .title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 20px;
-  color: #222;
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+  line-height: 1.1;
+  background: linear-gradient(45deg, #ff6b6b, #ffa726);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
 }
 
 .separator {
@@ -21,63 +26,69 @@
   height: 3px;
   background: linear-gradient(to right, #ff4747, #ff9966);
   margin: 0 auto 20px;
+  border-radius: 2px;
 }
 
 .subtitle {
   font-size: 1.1rem;
-color: #222;
+  color: #ccc;
   max-width: 600px;
   margin: 0 auto;
 }
 
 .valuesGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .valueCard {
-  background: #e7bebf;
-  padding: 40px 30px;
+  background: rgba(255, 255, 255, 0.05); /* subtle card background */
+  padding: 35px 25px;
   border-radius: 15px;
   text-align: center;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  backdrop-filter: blur(10px);
 }
 
 .valueCard:hover {
   transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .valueIcon {
   font-size: 3rem;
   margin-bottom: 20px;
+  color: #ff6b6b; /* icon gradient accent color */
 }
 
 .valueTitle {
-  font-size: 1.3rem;
-  font-weight: 600;
+  font-size: 1.4rem;
+  font-weight: 700;
   margin-bottom: 15px;
-  color: #222;
+  color: #fff;
 }
 
 .valueDescription {
-  color: #666;
+  color: #ccc;
+  font-size: 1rem;
   line-height: 1.6;
 }
 
+/* Responsive */
 @media (max-width: 768px) {
   .valuesSection {
     padding: 60px 20px;
   }
-  
+
   .title {
     font-size: 2rem;
   }
-  
+
   .valuesGrid {
     grid-template-columns: 1fr;
     gap: 20px;
